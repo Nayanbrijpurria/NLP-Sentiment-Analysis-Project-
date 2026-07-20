@@ -402,7 +402,7 @@ This is another important NLP concept.
 
 Lemmatization converts words into their **base or dictionary form**.
 
-Your code:
+my code:
 
 ```python
 token.lemma_
@@ -426,7 +426,7 @@ This helps the model treat similar forms of a word as one concept.
 
 # 12. Feature Extraction
 
-After preprocessing, you still have text.
+After preprocessing, we still have text.
 
 Example:
 
@@ -438,7 +438,7 @@ wifi speed good
 
 But machine learning models like Logistic Regression need **numbers**, not raw text.
 
-So you need to convert text into numerical features.
+So we need to convert text into numerical features.
 
 This process is called:
 
@@ -452,7 +452,7 @@ Our project uses:
 
 # 13. TF-IDF
 
-This is one of the **most important concepts** to understand for your interview.
+This is one of the **most important concepts** to understand.
 
 TF-IDF stands for:
 
@@ -538,7 +538,7 @@ The output is essentially a **numerical feature matrix**.
 
 # 14. fit() vs transform() vs fit_transform()
 
-Very common interview question.
+Very common question.
 
 ### `fit()`
 
@@ -578,17 +578,15 @@ If TF-IDF learns from test data, information from testing enters the training pr
 
 This is related to **data leakage**.
 
-### Interview answer
+### answer
 
 > "I fit TF-IDF only on the training data and use transform on the test data. This prevents information from the test set from leaking into the training process."
-
-Excellent interview answer.
 
 ---
 
 # 15. Train-Test Split
 
-You divide your dataset into:
+I divide my dataset into:
 
 ```text
 80% → Training
@@ -620,7 +618,7 @@ Training Data = Study material
 Test Data = Final exam
 ```
 
-### Interview answer
+### answer
 
 > "I split the dataset into 80% training and 20% testing data. The training data is used to train the model, while the test data evaluates how well it generalizes to unseen reviews."
 
