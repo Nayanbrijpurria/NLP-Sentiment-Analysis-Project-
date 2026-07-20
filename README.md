@@ -629,6 +629,16 @@ Test Data = Final exam
 
 # 16. Random State
 
+### My complete code
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+```
 ## What is `random_state=42`?
 
 Suppose you have **10 reviews**:
@@ -795,17 +805,6 @@ random_state=42
 But we **don't have to use 42**.
 
 ---
-
-### My complete code
-
-```python
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42
-)
-```
 
 In simple words:
 
