@@ -602,6 +602,9 @@ train_test_split(
     test_size=0.2
 )
 ```
+### test_size=0.2
+This means 20% of the dataset will be used for testing.
+The remaining 80% will automatically be used for training.
 
 ### Training data
 
