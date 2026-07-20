@@ -194,11 +194,11 @@ def preprocess_text(text):
 df["clean_review"] = df["review"].apply(preprocess_text)
 
 
-print("\n================================")
-print("CLEANED DATASET")
-print("================================")
+# print("\n================================")
+# print("CLEANED DATASET")
+# print("================================")
 
-print(df[["review", "clean_review"]])
+# print(df[["review", "clean_review"]])
 
 
 # -----------------------
@@ -299,21 +299,21 @@ predictions = model.predict(X_test_vectorized)
 
 accuracy = accuracy_score(y_test, predictions)
 
-print("\n================================")
-print("MODEL PERFORMANCE")
-print("================================")
+# print("\n================================")
+# print("MODEL PERFORMANCE")
+# print("================================")
 
-print("Accuracy:", accuracy)
+# print("Accuracy:", accuracy)
 
-print("\nDetailed Report:")
+# print("\nDetailed Report:")
 
-print(
-    classification_report(
-        y_test,
-        predictions,
-        zero_division=0
-    )
-)
+# print(
+#     classification_report(
+#         y_test,
+#         predictions,
+#         zero_division=0
+#     )
+# )
 
 
 # -----------------------
@@ -367,9 +367,9 @@ def predict_sentiment(review):
 # 17. TEST WITH SAMPLE REVIEWS
 # -----------------------
 
-print("\n================================")
-print("SAMPLE PREDICTIONS")
-print("================================")
+# print("\n================================")
+# print("SAMPLE PREDICTIONS")
+# print("================================")
 
 
 test_reviews = [
@@ -391,15 +391,15 @@ for review in test_reviews:
 
     sentiment, confidence = predict_sentiment(review)
 
-    print("\nReview:", review)
+    # print("\nReview:", review)
 
-    print("Sentiment:", sentiment)
+    # print("Sentiment:", sentiment)
 
-    print(
-        "Confidence:",
-        round(confidence * 100, 2),
-        "%"
-    )
+    # print(
+    #     "Confidence:",
+    #     round(confidence * 100, 2),
+    #     "%"
+    # )
 
 
 # -----------------------
