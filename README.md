@@ -629,31 +629,193 @@ Test Data = Final exam
 
 # 16. Random State
 
-Your code:
+## What is `random_state=42`?
+
+Suppose you have **10 reviews**:
+
+```text
+Review 1
+Review 2
+Review 3
+Review 4
+Review 5
+Review 6
+Review 7
+Review 8
+Review 9
+Review 10
+```
+
+And you write:
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2
+)
+```
+
+Here, 20% means **2 reviews are selected for testing**, and 8 are used for training.
+
+The selection is **random**.
+
+### Without `random_state`
+
+First time you run:
+
+```text
+Testing → Review 2, Review 7
+Training → Remaining 8 reviews
+```
+
+Run the program again:
+
+```text
+Testing → Review 4, Review 9
+Training → Remaining 8 reviews
+```
+
+Run again:
+
+```text
+Testing → Review 1, Review 5
+Training → Remaining 8 reviews
+```
+
+Because the split changes, your model's accuracy might also change slightly.
+
+---
+
+# What does `random_state` do?
+
+When you write:
 
 ```python
 random_state=42
 ```
 
-Train-test splitting is normally random.
+you are basically telling Python:
 
-If you run the program multiple times, you might get different splits.
+> "Whenever you randomly split my data, use the same random pattern."
 
-Setting:
+So:
+
+### First run
+
+```text
+Testing → Review 2, Review 7
+```
+
+### Second run
+
+```text
+Testing → Review 2, Review 7
+```
+
+### Third run
+
+```text
+Testing → Review 2, Review 7
+```
+
+You get the **same train-test split every time**.
+
+This is called **reproducibility**.
+
+It is useful because you can run your experiment multiple times and compare models fairly using the **same training and testing data**.
+
+---
+
+# Why exactly `42`? 🤔
+
+42 is just a starting point (called a seed) for the random process.
+There is **nothing mathematically special about 42** for machine learning.
+
+You could write:
+
+```python
+random_state=1
+```
+
+or
+
+```python
+random_state=10
+```
+
+or
+
+```python
+random_state=100
+```
+
+or
 
 ```python
 random_state=42
 ```
 
-makes the split **reproducible**.
+All are valid.
 
-That means you get the same split every time.
+The important thing is that if you use the **same number**, you get the **same random split**.
 
-42 itself is not special; you could use another integer.
+For example:
 
-### Interview answer
+```python
+random_state=42
+```
 
-> "I used random_state=42 to make my train-test split reproducible, so I get the same split whenever I run the experiment."
+Run 1 → Split A
+Run 2 → Split A
+Run 3 → Split A
+
+But if you change it:
+
+```python
+random_state=10
+```
+
+I may get **Split B**.
+
+So the number acts like a **starting point (seed) for the random process**.
+
+---
+
+## Then why do programmers commonly use `42`?
+
+`42` became a popular programming joke/reference from the book **The Hitchhiker's Guide to the Galaxy**, where 42 is described as the "Answer to the Ultimate Question of Life, the Universe, and Everything."
+
+Because of that, many programmers use:
+
+```python
+random_state=42
+```
+
+But we **don't have to use 42**.
+
+---
+
+### My complete code
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+```
+
+In simple words:
+
+> **"Split my X and y data into 80% training and 20% testing. Randomly select the data, but use random seed 42 so that I get the same split every time I run the program."**
+
+### 🎯 Answer
+
+> **"Train-test splitting involves random selection of data. I used `random_state=42` to make the random split reproducible, meaning I get the same training and testing data every time I run the code. The number 42 itself has no special machine-learning significance; any fixed integer can be used."**
+
+**One important point:** `random_state=42` does **not** mean 42% of the data, and it does **not** improve model accuracy. It only controls the randomness so your results can be reproduced.
 
 ---
 
