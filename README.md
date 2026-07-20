@@ -18,7 +18,7 @@ Your input is:
 
 A computer cannot directly understand the meaning like a human. NLP techniques help clean and prepare this text so a machine learning model can work with it.
 
-### In your project
+### In this project
 
 You use **spaCy** for NLP preprocessing.
 
@@ -27,7 +27,7 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 ```
 
-### Interview answer
+### answer
 
 > "I used NLP techniques to preprocess customer reviews before giving them to the machine learning model. I used spaCy for tokenization, stop-word removal, punctuation removal, and lemmatization."
 
@@ -53,7 +53,7 @@ Example:
 
 This is called **binary sentiment classification** because there are two possible output classes.
 
-### Interview answer
+### answer
 
 > "My project performs sentiment analysis on customer reviews. It classifies each review into positive or negative sentiment."
 
@@ -80,7 +80,7 @@ The model learns the relationship between the review and its sentiment.
 
 Think of it like teaching a student with an answer sheet.
 
-### Interview answer
+### answer
 
 > "This is a supervised machine learning project because I train the model using labeled customer reviews where each review already has a positive or negative sentiment label."
 
@@ -105,7 +105,7 @@ More specifically:
 
 because there are only two classes.
 
-### Interview answer
+### answer
 
 > "I treated sentiment analysis as a binary classification problem where the two target classes are positive and negative."
 
@@ -151,7 +151,7 @@ X → y
 Review → Sentiment
 ```
 
-### Interview answer
+### answer
 
 > "X represents the input customer reviews, while y represents the target sentiment labels that the model needs to predict."
 
@@ -198,7 +198,7 @@ ROUTER
 
 could be treated as different words.
 
-### Interview answer
+### answer
 
 > "I convert text to lowercase to maintain consistency and reduce duplicate word representations."
 
@@ -229,7 +229,7 @@ spaCy automatically performs tokenization when you do:
 doc = nlp(text.lower())
 ```
 
-### Interview answer
+### answer
 
 > "Tokenization breaks a sentence into individual tokens or words so that each word can be processed separately."
 
@@ -249,7 +249,7 @@ an
 of
 ```
 
-Your code:
+Our code:
 
 ```python
 if not token.is_stop
@@ -283,7 +283,7 @@ It reduces unnecessary words and helps focus on important information.
 
 This is a **very important NLP concept** in your project.
 
-You wrote:
+I wrote:
 
 ```python
 nlp.vocab["not"].is_stop = False
@@ -291,7 +291,7 @@ nlp.vocab["no"].is_stop = False
 nlp.vocab["never"].is_stop = False
 ```
 
-Normally some preprocessing systems may consider common words as stop words. But negation words are important for sentiment.
+Normally, some preprocessing systems may consider common words as stop words. But negation words are important for sentiment.
 
 Compare:
 
@@ -313,7 +313,7 @@ Therefore, you preserve:
 * no
 * never
 
-### Interview answer
+### answer
 
 > "I specifically preserve negation words such as 'not', 'no', and 'never' because removing them could reverse the meaning of a review. For example, 'good' and 'not good' should not be treated the same."
 
@@ -350,7 +350,7 @@ becomes roughly:
 amazing router
 ```
 
-### Interview answer
+### answer
 
 > "I remove punctuation because the basic TF-IDF model mainly focuses on word-based features, and unnecessary punctuation can add noise."
 
@@ -378,7 +378,7 @@ cars → car
 
 This helps the model treat similar forms of a word as one concept.
 
-### Interview answer
+### answer
 
 > "I used lemmatization to convert different forms of words into their base form. For example, 'working' becomes 'work' and 'routers' becomes 'router'. This reduces vocabulary size and improves consistency."
 
@@ -404,7 +404,7 @@ This process is called:
 
 **Feature Extraction**
 
-Your project uses:
+Our project uses:
 
 **TF-IDF Vectorization**
 
@@ -476,7 +476,7 @@ TF-IDF gives a higher weight to words that are:
 * Important in a particular review
 * Not too common across all reviews
 
-Your code:
+my code:
 
 ```python
 vectorizer = TfidfVectorizer()
@@ -490,7 +490,7 @@ X_train_vectorized = vectorizer.fit_transform(X_train)
 
 The output is essentially a **numerical feature matrix**.
 
-### Interview answer
+### answer
 
 > "Machine learning models cannot directly understand text, so I used TF-IDF to convert cleaned customer reviews into numerical feature vectors. TF-IDF gives importance to words based on their frequency in a review and their rarity across the dataset."
 
