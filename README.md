@@ -4,8 +4,6 @@ The complete flow is:
 
 **Customer Review → Text Preprocessing → TF-IDF → Logistic Regression → Prediction → Evaluation**
 
-Here are the concepts you should understand.
-
 ---
 
 # 1. Natural Language Processing (NLP)
