@@ -159,17 +159,57 @@ Review → Sentiment
 
 # 6. Text Preprocessing
 
-Raw text usually contains unnecessary information.
+## 6. Text Preprocessing
 
-For example:
+**Text preprocessing** means **cleaning and preparing raw text before giving it to a machine learning model**.
+
+Raw customer reviews may contain unnecessary words, punctuation, different word forms, etc. Preprocessing makes the text cleaner and more consistent.
+
+### Example
+
+Original review:
 
 > "The Routers are working VERY well!!!"
 
-After preprocessing, it might become:
+After preprocessing:
 
-> "router work well"
+> "router work"
 
-Your project performs several preprocessing operations.
+In your project, text preprocessing is done using **spaCy**:
+
+```python
+def preprocess_text(text):
+
+    # 1. Convert text to lowercase and tokenize using spaCy
+    doc = nlp(text.lower())
+
+    tokens = []
+
+    for token in doc:
+
+        # 2. Remove stop words, punctuation, and spaces
+        if (
+            not token.is_stop
+            and not token.is_punct
+            and not token.is_space
+        ):
+
+            # 3. Convert word to its base form
+            tokens.append(token.lemma_)
+
+    # 4. Join words back into a sentence
+    return " ".join(tokens)
+```
+
+### Steps happening here:
+
+1. **Lowercasing** → `"Router"` becomes `"router"`
+2. **Tokenization** → Sentence is divided into individual words/tokens.
+3. **Stop-word removal** → Common words like `"the"`, `"is"` are removed.
+4. **Punctuation removal** → Characters like `!`, `.`, `,` are removed.
+5. **Space removal** → Unnecessary spaces are ignored.
+6. **Lemmatization** → `"routers"` → `"router"`, `"working"` → `"work"`
+7. **Join tokens** → Cleaned words are joined back together.
 
 ---
 
